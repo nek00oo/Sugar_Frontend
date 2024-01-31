@@ -1,7 +1,7 @@
-import s from "./Register.module.css"
-import Header from "../Header/NavBarHeader/Header";
+import s from "./Account.module.css"
+import Header from "../Header/AccountHeader/Header";
 import Body from "./Body/Body";
-const Register = () => {
+const Account = () => {
     return (
         <div className={s.Wrapper}>
             <Header/>
@@ -10,4 +10,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default Account;

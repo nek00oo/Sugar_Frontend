@@ -11,16 +11,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 430px;
-    height: 65px;
-    padding: 0 20px;
+
+    height: 7vh;
+    padding: 0 3vw;
 
 }
 
 .center_element{
     color: #FFF;
     text-align: center;
-    font-size: 26px;
+    font-size: 2em;
     font-style: normal;
     font-weight: 500;
     line-height: normal;

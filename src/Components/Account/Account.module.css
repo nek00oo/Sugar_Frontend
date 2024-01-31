@@ -1,0 +1,6 @@
+.Wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #3D5869 0%, rgba(29, 188, 168, 0.83) 100%);
+}

@@ -1,0 +1,35 @@
+.Header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background-color: #233F4A;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.header__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 7vh;
+    padding: 0 3vw;
+
+}
+
+.center_element{
+    color: #FFF;
+    text-align: center;
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.end_element{
+    align-self: flex-end;
+}
+
+.start_element{
+    margin-top: 1vh;
+}
