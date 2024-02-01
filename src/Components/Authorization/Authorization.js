@@ -10,7 +10,7 @@ const Authorization = () => {
     return (
         <div className={s.Wrapper}>
             <Header/>
-            <Body title="Авторизация" InputComponents={InputComponents} button="Далее"/>
+            <Body title="Авторизация" InputComponents={InputComponents} button="войти"/>
         </div>
     );
 }

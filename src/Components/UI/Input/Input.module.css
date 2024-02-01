@@ -1,5 +1,8 @@
 .Input {
+    font-family: var(--font-family);
+    font-weight: 300;
     font-size: 2em;
+    color: #000;
     padding: 0 1vw;
     border-radius: 30px;
     width: 72vw;
