@@ -1,8 +1,6 @@
 .PlaceHolder {
     color: #000;
-    font-family: Rubik, serif;
-    font-size: 36px;
-    font-style: normal;
+    font-family: var(--font-family);
+    font-size: 2.3em;
     font-weight: 500;
-    line-height: normal;
 }

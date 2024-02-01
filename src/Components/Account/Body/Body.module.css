@@ -17,8 +17,8 @@
     border-radius: 30px;
     background-color: white;
     display: flex;
-    width: 90vw;
-    height: 56vh;
+    max-width: 90vw;
+    min-height: 56vh;
     margin: 2vh 5vw;
     flex-direction: column;
     justify-content: space-evenly;
