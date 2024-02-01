@@ -11,8 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    height: 7vh;
+    min-height: 7vh;
     padding: 0 3vw;
 
 }
@@ -20,16 +19,23 @@
 .center_element{
     color: #FFF;
     text-align: center;
-    font-size: 2em;
+    font-size: 6.5vw;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 
 .end_element{
-    align-self: flex-end;
+    margin-top: 1.5vh;
 }
 
 .start_element{
     margin-top: 1vh;
+}
+
+.end_element img,
+.start_element img {
+    width: 8vw;
+    height: auto;
+    padding: 1vh 0;
 }
