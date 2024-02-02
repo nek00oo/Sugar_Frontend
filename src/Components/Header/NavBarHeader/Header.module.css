@@ -30,3 +30,7 @@
     height: auto;
     padding: 1vh 0;
 }
+
+.btn{
+    background: rgba(0,0,0,0);
+}
