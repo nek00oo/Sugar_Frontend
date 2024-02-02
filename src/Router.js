@@ -5,6 +5,7 @@ import Account from "./Pages/Account/Account";
 import Register from "./Pages/Register/Register";
 import Authorization from "./Pages/Authorization/Authorization";
 import Statistics from "./Pages/Statistics/Statistics";
+import Burger from "./Components/UI/Burger/Burger";
 
 
 const Router = () => {
@@ -22,6 +23,7 @@ const Router = () => {
             <Route path="/register" element={<Register/>}></Route>
             <Route path="/authorization" element={<Authorization/>}></Route>
             <Route path="/statistics" element={<Statistics/>}></Route>
+            <Route path="/1" element={<Burger/>}></Route>
             <Route path="*" element={<Navigate to="/register"/>}></Route>
         </Routes>
     )
