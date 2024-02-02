@@ -1,10 +1,11 @@
 import {Navigate, Route, Routes} from "react-router-dom";
-import Register from "./Components/Register/Register";
-import Authorization from "./Components/Authorization/Authorization";
-import Account from "./Components/Account/Account";
 import {useContext} from "react";
 import {AuthContext} from "./Context/AuthContext";
-import Statistics from "./Components/Statistics/Statistics";
+import Account from "./Pages/Account/Account";
+import Register from "./Pages/Register/Register";
+import Authorization from "./Pages/Authorization/Authorization";
+import Statistics from "./Pages/Statistics/Statistics";
+
 
 const Router = () => {
     const {Auth} = useContext(AuthContext)

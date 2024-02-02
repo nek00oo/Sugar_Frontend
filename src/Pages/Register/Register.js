@@ -17,7 +17,6 @@ const Register = () => {
         console.log(name)
         setUser({
             name: name,
-            login: login,
         })
     }
 

@@ -1,5 +1,5 @@
 import s from "./CreateAccount.module.css"
-import BorderButton from "../../UI/Button/BorderButton";
+import BorderButton from "../../../Components/UI/Button/BorderButton";
 const CreateAccount = () => {
     return (
         <div className={s.Body}>
