@@ -1,18 +1,26 @@
 import './App.css';
-import {BrowserRouter, Route, Router, Routes} from "react-router-dom";
-import Register from "./Components/Register/Register";
-import Account from "./Components/Account/Account";
-import Authorization from "./Components/Authorization/Authorization";
+
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Router from "./Router";
+import {AuthContext} from "./Context/AuthContext";
+import {useState} from "react";
+import {UserContext} from "./Context/UserContext";
 
 function App() {
+    const [Auth, setAuth] = useState(false)
+    const [userName, setUserName] = useState("Стас Барецкий")
+    const [userLogin, setUserLogin] = useState("stas@baretskii.su")
+    const [userHeight, setUserHeight] = useState("1.75м")
+    const [userWeight, setUserWeight] = useState("200кг")
+
   return (
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Register/>}></Route>
-            <Route path="/account" element={<Account/>}></Route>
-            <Route path="/authorization" element={<Authorization/>}></Route>
-        </Routes>
-    </BrowserRouter>
+      <UserContext.Provider value={{userName, userLogin, userHeight, userWeight, setUserName, setUserLogin, setUserHeight, setUserWeight}}>
+            <AuthContext.Provider value={{Auth, setAuth}}>
+                <BrowserRouter>
+                    <Router/>
+                </BrowserRouter>
+            </AuthContext.Provider>
+      </UserContext.Provider>
   );
 }
 
