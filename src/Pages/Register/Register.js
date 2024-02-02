@@ -23,7 +23,7 @@ const Register = () => {
 
     return (
         <div className={s.Wrapper}>
-            <Header/>
+            <Header title="Регистрация"/>
             <div className={s1.Body}>
                 <form className={s1.Form} onSubmit={reg}>
                     <div><h2 className={s1.Header}>Регистрация</h2></div>
