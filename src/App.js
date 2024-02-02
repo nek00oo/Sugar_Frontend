@@ -1,17 +1,12 @@
 import './App.css';
-import {BrowserRouter, Route, Router, Routes} from "react-router-dom";
-import Register from "./Components/Register/Register";
-import Account from "./Components/Account/Account";
-import Authorization from "./Components/Authorization/Authorization";
+
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Router from "./Router";
 
 function App() {
   return (
     <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Register/>}></Route>
-            <Route path="/account" element={<Account/>}></Route>
-            <Route path="/authorization" element={<Authorization/>}></Route>
-        </Routes>
+        <Router/>
     </BrowserRouter>
   );
 }
