@@ -6,6 +6,7 @@ import BorderButton from "../../Components/UI/Button/BorderButton";
 import {useContext, useState} from "react";
 import {UserContext} from "../../Context/UserContext";
 import {AuthContext} from "../../Context/AuthContext";
+import BurgerMenu from "../../Components/UI/Burger/Burger";
 const Register = () => {
     const {user, setUser} = useContext(UserContext)
     const {setAuth} = useContext(AuthContext)
@@ -24,6 +25,7 @@ const Register = () => {
     return (
         <div className={s.Wrapper}>
             <Header title="Регистрация"/>
+            <BurgerMenu/>
             <div className={s1.Body}>
                 <form className={s1.Form} onSubmit={reg}>
                     <div><h2 className={s1.Header}>Регистрация</h2></div>
