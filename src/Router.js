@@ -4,6 +4,7 @@ import Authorization from "./Components/Authorization/Authorization";
 import Account from "./Components/Account/Account";
 import {useContext} from "react";
 import {AuthContext} from "./Context/AuthContext";
+import Statistics from "./Components/Statistics/Statistics";
 
 const Router = () => {
     const {Auth} = useContext(AuthContext)
@@ -18,6 +19,7 @@ const Router = () => {
         <Routes>
             <Route path="/register" element={<Register/>}></Route>
             <Route path="/authorization" element={<Authorization/>}></Route>
+            <Route path="/statistics" element={<Statistics/>}></Route>
             <Route path="*" element={<Register/>}></Route>
         </Routes>
     )
