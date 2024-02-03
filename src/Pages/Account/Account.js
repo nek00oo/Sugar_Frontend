@@ -6,6 +6,7 @@ import {UserContext} from "../../Context/UserContext";
 import Header from "../../Components/Header/Header";
 import ArrowButton from "../../Components/UI/Button/ArrowButton/ArrowButton";
 import UserButton from "../../Components/UI/Button/UserButton/UserButton";
+import Chart from "./Data/Statictics";
 const Account = () => {
     const {User} = useContext(UserContext)
     return (
@@ -19,6 +20,11 @@ const Account = () => {
                     <PlaceHolder>Ваши показатели</PlaceHolder>
                     <PlaceHolder>Рост: {User.height}</PlaceHolder>
                     <PlaceHolder>Вес: {User.weight}</PlaceHolder>
+                </div>
+                <div className={s1.Form}>
+                    <div className={s1.Graph}>
+                        <Chart/>
+                    </div>
                 </div>
             </div>
         </div>
