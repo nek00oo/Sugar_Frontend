@@ -1,9 +1,9 @@
 import s from "./Input.module.css";
 
-const BorderInput = ({type, placeholder}) => {
+const BorderInput = (props) => {
     return (
         <div className={s.Border}>
-            <input className={s.Input} type={type} placeholder={placeholder}/>
+            <input className={s.Input} {...props}/>
         </div>
     );
 }

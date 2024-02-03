@@ -8,17 +8,21 @@ import {UserContext} from "../../Context/UserContext";
 import {AuthContext} from "../../Context/AuthContext";
 import BurgerMenu from "../../Components/UI/Burger/Burger";
 const Register = () => {
-    const {user, setUser} = useContext(UserContext)
+    const {setUser} = useContext(UserContext)
     const {setAuth} = useContext(AuthContext)
 
     const [name, setName] = useState('')
+    const [login, setLogin] = useState('')
+    const [password, setPassword] = useState('')
 
     const reg = (event) => {
         event.preventDefault()
-        console.log(name)
         setUser({
             name: name,
+            login: login,
+            password: password,
         })
+        setAuth(true)
     }
 
 
@@ -29,9 +33,9 @@ const Register = () => {
             <div className={s1.Body}>
                 <form className={s1.Form} onSubmit={reg}>
                     <div><h2 className={s1.Header}>Регистрация</h2></div>
-                    <BorderInput placeholder={'Имя'} type={'text'} onChange={(e) => setName(e.target.value)}/>
-                    <BorderInput placeholder={'Логин'} />
-                    <BorderInput placeholder={'Пароль'} type={"password"}/>
+                    <BorderInput placeholder={'Имя'} onChange={(e) => setName(e.target.value)}/>
+                    <BorderInput placeholder={'Логин'} onChange={(e) => setLogin(e.target.value)}/>
+                    <BorderInput placeholder={'Пароль'} type={"password"} onChange={(e) => setPassword(e.target.value)}/>
                     <BorderButton type={"submit"}>далее</BorderButton>
                 </form>
             </div>
