@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 /*Обнуление*/
 *{
   padding: 0;
@@ -39,6 +41,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 :root {
   --font-family: "Rubik", sans-serif;
   --second-family: "Inter", sans-serif;
+  --third-family: 'Rubik Mono One', monospace;
 }
 
 [class*="__container"]{

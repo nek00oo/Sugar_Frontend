@@ -24,14 +24,19 @@ const BurgerMenu = () => {
 
     return (
         <div
-            className={Burger ? s.burger_menu_open : s.burger_menu}
+            className={`${s.burger_menu}${Burger ? ` ${s.open}` : ''}`}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
         >
+            <div className={s.first_element}>
+                <div className={s.title}>КОЛИСЬ</div>
+                <img className={s.logo} src={process.env.PUBLIC_URL + "/syringe.svg"} alt={"Logo"}/>
+            </div>
             <div className={s.menu}>
-                <Link to="/register" onClick={toggleMenu}>Главная</Link>
-                <Link to="/about">О нас</Link>
-                <Link to="/contact">Контакты</Link>
+                <Link className={s.menu__item} to="/register" onClick={toggleMenu}>Главная</Link>
+                <Link className={s.menu__item} to="/Тут_будет_питание">Питание</Link>
+                <Link className={s.menu__item} to="/about">О нас</Link>
+                <Link className={s.menu__item} to="/contact">Контакты</Link>
             </div>
         </div>
     );
