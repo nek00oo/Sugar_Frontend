@@ -16,6 +16,7 @@
 }
 
 .center_element{
+    font-family: var(--font-family);;
     color: #FFF;
     text-align: center;
     font-size: 6.5vw;

@@ -1,4 +1,7 @@
 .Body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     flex: 1 1 auto;
     /*padding: 16vh 0 24vh 0;*/
     margin-top: 16vh;
@@ -17,9 +20,9 @@
     border-radius: 30px;
     background-color: white;
     display: flex;
-    max-width: 90vw;
+    width: 90vw; /*width*/
     height: auto;
-    margin: 2vh 5vw;
+    margin: 2vh 0;
     flex-direction: column;
     /*justify-content: space-around;*/
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);

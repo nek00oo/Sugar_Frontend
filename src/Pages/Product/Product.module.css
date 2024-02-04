@@ -3,5 +3,13 @@
 }
 
 .Form{
-    max-height: 70vh;
+    height: 75vh;
+}
+
+.Scroll{
+    display: flex;
+    width: 90vw;
+    margin: 1vh 0;
+    flex-direction: column;
+    overflow-y: auto;
 }
