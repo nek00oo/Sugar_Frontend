@@ -1,5 +1,5 @@
 import s from "../../Components/UI/Wrapper.module.css"
-import s1 from "./Register.module.css"
+import s1 from "../../Components/UI/Form.module.css"
 import BorderInput from "../../Components/UI/Input/BorderInput";
 import BorderButton from "../../Components/UI/Button/BorderButton/BorderButton";
 import {useContext, useState} from "react";

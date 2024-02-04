@@ -5,6 +5,7 @@ import Account from "./Pages/Account/Account";
 import Register from "./Pages/Register/Register";
 import Authorization from "./Pages/Authorization/Authorization";
 import Statistics from "./Pages/Statistics/Statistics";
+import Product from "./Pages/Product/Product";
 
 
 const Router = () => {
@@ -16,6 +17,7 @@ const Router = () => {
         <Routes>
             <Route path="/account" element={<Account/>}></Route>
             <Route path="*" element={<Navigate to="/account"/>}></Route>
+            <Route path="/product" element={<Product/>}></Route>
         </Routes>
         :
         <Routes>

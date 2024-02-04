@@ -8,7 +8,7 @@ import {UserContext} from "./Context/UserContext";
 import {BurgerContext} from "./Context/BurgerContext";
 
 function App() {
-    const [Auth, setAuth] = useState(false)
+    const [Auth, setAuth] = useState(true)
     const [Burger, setBurger] = useState(false)
     const [User, setUser] = useState(
         {

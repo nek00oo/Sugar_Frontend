@@ -1,4 +1,4 @@
-import s from "./Body.module.css"
+import s from "../../../Components/UI/Form.module.css"
 
 const Body = () => {
     return (
