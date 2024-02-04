@@ -2,8 +2,10 @@ import {Link} from "react-router-dom";
 import {useContext, useState} from "react";
 import s from "./Burger.module.css"
 import {BurgerContext} from "../../../Context/BurgerContext";
+import {AuthContext} from "../../../Context/AuthContext";
 
-const BurgerMenu = () => {
+const BurgerMenu = ({links}) => {
+    const {Auth, setAuth} = useContext(AuthContext)
     const {Burger, setBurger} = useContext(BurgerContext)
     const [startX, setStartX] = useState(null)
 
@@ -33,10 +35,13 @@ const BurgerMenu = () => {
                 <img className={s.logo} src={process.env.PUBLIC_URL + "/syringe.svg"} alt={"Logo"}/>
             </div>
             <div className={s.menu}>
-                <Link className={s.menu__item} to="/register" onClick={toggleMenu}>Главная</Link>
-                <Link className={s.menu__item} to="/Тут_будет_питание">Питание</Link>
-                <Link className={s.menu__item} to="/about">О нас</Link>
-                <Link className={s.menu__item} to="/contact">Контакты</Link>
+                {links.map(link =>
+                    <Link className={s.menu__item} to={link.route} onClick={toggleMenu}>{link.name}</Link>
+                )}
+                {Auth ? <Link className={s.menu__item} to={"/"} onClick={() =>{
+                    toggleMenu()
+                    setAuth(false)
+                }}><h2 style={{color: "Red"}}>Выход</h2></Link> : <div></div>}
             </div>
         </div>
     );

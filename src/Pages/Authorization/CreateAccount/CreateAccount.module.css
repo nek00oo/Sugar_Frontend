@@ -24,3 +24,21 @@
     /*justify-content: space-around;*/
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
 }
+
+.Border {
+    border: #1DBCAB solid 4px;
+    border-radius: 30px;
+    margin: 5vw 15vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.Button {
+    border-radius: 30px;
+    font-size: 8vw;
+    text-align: center;
+    color: #000;
+    font-family: var(--font-family);
+    font-weight: 500;
+}
