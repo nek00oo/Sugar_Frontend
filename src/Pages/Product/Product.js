@@ -7,6 +7,7 @@ import Header from "../../Components/Header/Header";
 import BurgerButton from "../../Components/UI/Button/BurgerButton/BurgerButton";
 import BurgerMenu from "../../Components/UI/Burger/Burger";
 import SelectProduct from "../../Components/UI/SelectProduct/SelectProduct";
+import ProductCard from "../../Components/UI/Product/ProductCard";
 
 
 const Product = () => {
@@ -17,9 +18,10 @@ const Product = () => {
             <Header left={<BurgerButton onClick={() => setBurger(true)}/>} center={"Главная"}/>
             <BurgerMenu links={burgerLinks}/>
             <div className={`${s1.Body} ${s3.Body}`}>
-                <form className={`${s1.Form} ${s3.Form}`}>
+                <div className={`${s1.Form} ${s3.Form}`}>
                     <SelectProduct placeholder={"Поиск продукта"}/>
-                </form>
+                    <ProductCard/>
+                </div>
             </div>
         </div>
     );
