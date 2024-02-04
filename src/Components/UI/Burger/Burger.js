@@ -41,7 +41,7 @@ const BurgerMenu = ({links}) => {
                 {Auth ? <Link className={s.menu__item} to={"/"} onClick={() =>{
                     toggleMenu()
                     setAuth(false)
-                }}><h2 style={{color: "Red"}}>Выход</h2></Link> : <div></div>}
+                }}><h2 style={{color: "Red"}}>Выход</h2></Link> : <></>}
             </div>
         </div>
     );

@@ -14,3 +14,23 @@ img {
     padding: 2vh 5vw;
     flex: 1 1 auto;
 }
+
+.edit{
+    display: flex;
+    justify-content: space-between;
+    margin: 3vh;
+}
+
+.apply_btn{
+    font-size: 2em;
+    border-radius: 15px;
+    padding: 0 2vw;
+    background: green;
+}
+
+.reset_btn{
+    font-size: 2em;
+    border-radius: 15px;
+    padding: 0 2vw;
+    background: red;
+}
