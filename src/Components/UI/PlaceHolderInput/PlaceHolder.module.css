@@ -1,0 +1,15 @@
+.PlaceHolder {
+    color: #000;
+    font-family: var(--font-family);
+    font-size: 7vw;
+    font-weight: 500;
+    padding-bottom: 4vh;
+}
+
+.Input {
+    color: #000;
+    font-family: var(--font-family);
+    font-size: 7vw;
+    font-weight: 500;
+    width: 79vw;
+}
