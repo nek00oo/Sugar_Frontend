@@ -5,10 +5,13 @@
     right: 0;
     left: 0;
     display: none;
+    background: rgba(0,0,0,0.5);
 }
 
 .ModalContent {
+    display: flex;
     padding: 25px;
+    flex-direction: column;
     background: white;
     border-radius: 16px;
     min-width: 250px;
@@ -18,4 +21,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.exitBtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.exitBtn * {
+    font-size: 2em;
+    background: rgba(0,0,0,0);
 }

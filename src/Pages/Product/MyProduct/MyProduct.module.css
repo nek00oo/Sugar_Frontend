@@ -67,13 +67,4 @@
 
 }
 
-.menu__item{
-    display: flex;
-    justify-content: center;
 
-}
-
-.minus{
-    width: 8%;
-    height: auto;
-}

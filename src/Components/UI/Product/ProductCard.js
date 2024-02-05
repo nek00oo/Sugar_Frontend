@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './ProductCard.module.css'
-const ProductCard = () => {
+import Modal from "../Modal/Modal";
+const ProductCard = ({name, id}) => {
+    const [modal, setModal] = useState(false)
+
+
     return (
-        <div className={s.Product}>
-            <h3 className={s.Text}>name</h3>
-            <h3 className={s.Text}>test</h3>
-        </div>
+        <button className={s.Product} key={id} onClick={() => setModal(true)}>
+            <h3 className={s.Text}>{name}</h3>
+            <Modal modal={modal} setModal={setModal}>
+                <input placeholder={"test"}/>
+                <input placeholder={"test"}/>
+                <input placeholder={"test"}/>
+                <input placeholder={"test"}/>
+                <input placeholder={"test"}/>
+                <input placeholder={"test"}/>
+            </Modal>
+        </button>
     );
 };
 

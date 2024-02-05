@@ -1,15 +1,18 @@
 import React from 'react';
 import s from './Modal.module.css'
-const Modal = ({children, visible}) => {
+const Modal = ({children, modal, setModal}) => {
     const rootClasses = [s.Modal]
 
-    if (visible) {
+    if (modal) {
         rootClasses.push(s.active)
     }
 
     return (
         <div className={rootClasses.join(' ')}>
-            <div className={s.ModalContent}>
+            <div className={s.ModalContent} onClick={(e) => e.stopPropagation()}>
+                <div className={s.exitBtn}>
+                    <button onClick={() => setModal(false)}>X</button>
+                </div>
                 {children}
             </div>
         </div>

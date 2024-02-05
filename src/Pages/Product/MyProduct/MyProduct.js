@@ -1,13 +1,18 @@
 import {useContext, useState} from "react"
 import {AuthContext} from "../../../Context/AuthContext"
 import s from "./MyProduct.module.css"
-import ProductCard from "../../../Components/UI/Product/ProductCard";
 import BorderButton from "../../../Components/UI/Button/BackCountButton/BorderButton";
+import TakenProduct from "../../../Components/UI/TakenProduct/TakenProduct";
 
 const MyProduct = ({links}) => {
     const {Auth, setAuth} = useContext(AuthContext)
     const [Product, setProduct] = useState(false)
     const [startY, setStartY] = useState(null)
+    const [taken, setTaken] = useState([{id: 1, name: "test"}])
+
+    const del = (id) => {
+        setTaken(taken.filter(t => t.id !== id))
+    }
 
     const toggleMenu = () => {
         setProduct(!Product);
@@ -38,34 +43,9 @@ const MyProduct = ({links}) => {
                 <img className={s.arrow} src={process.env.PUBLIC_URL + "/arrowUp.svg"} alt={"arrow"} onClick={toggleMenu}/>
             </div>
             <div className={s.menu}>
-                <div className={s.menu__item}>
-                    <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} alt={"minus"}></img>
-                    <ProductCard/>
-                </div>
-                <div className={s.menu__item}>
-                    <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} alt={"minus"}></img>
-                    <ProductCard/>
-                </div>
-                <div className={s.menu__item}>
-                    <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} alt={"minus"}></img>
-                    <ProductCard/>
-                </div>
-                <div className={s.menu__item}>
-                    <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} alt={"minus"}></img>
-                    <ProductCard/>
-                </div>
-                <div className={s.menu__item}>
-                    <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} alt={"minus"}></img>
-                    <ProductCard/>
-                </div>
-                <div className={s.menu__item}>
-                    <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} alt={"minus"}></img>
-                    <ProductCard/>
-                </div>
-                <div className={s.menu__item}>
-                    <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} alt={"minus"}></img>
-                    <ProductCard/>
-                </div>
+                {taken.map(t =>
+                    <TakenProduct id={t.id} name={t.name} del={del} mass={"1"}/>
+                )}
                 <BorderButton>Рассчитать</BorderButton>
             </div>
         </div>
