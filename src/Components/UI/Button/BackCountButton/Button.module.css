@@ -1,15 +1,15 @@
 .Border {
     border: 4px solid #3a5d74;
     border-radius: 30px;
-    margin: 5vw 25vw;
+    margin: 5vh 17vw;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
 }
 
 .Button {
     border-radius: 30px;
-    font-size: 5vh;
+    font-size: 7vw;
     text-align: center;
     color: #000;
     font-family: var(--font-family);

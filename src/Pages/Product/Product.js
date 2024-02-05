@@ -24,7 +24,7 @@ const Product = () => {
                     <SelectProduct placeholder={"Поиск продукта"}/>
                     <div className={s3.Scroll}>
                         {cards.map(card =>
-                            <ProductCard id={card.id} name={card.name}/>
+                            <ProductCard name={card.name} key={card.id}/>
                         )}
                     </div>
                 </div>

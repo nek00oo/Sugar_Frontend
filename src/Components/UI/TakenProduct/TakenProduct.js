@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './TakenProduct.module.css'
-const TakenProduct = ({name, id, del, mass}) => {
+const TakenProduct = (props) => {
     return (
         <div className={s.menu__item}>
-            <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} onClick={() => del(id)} alt={"minus"}></img>
+            <img className={s.minus} src={process.env.PUBLIC_URL + "/minus.svg"} onClick={() => props.del(props.key)} alt={"minus"}></img>
             <div className={s.Product}>
-                <h3 className={s.Text}>{name}</h3>
-                <h3 className={s.Text}>{mass}</h3>
+                <h3 className={s.Text}>{props.name}</h3>
+                <h3 className={s.Text}>{props.mass}</h3>
             </div>
         </div>
     );

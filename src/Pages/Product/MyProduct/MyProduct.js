@@ -9,8 +9,8 @@ const MyProduct = () => {
     const [startY, setStartY] = useState(null)
     const {Taken, setTaken} = useContext(TakenContext)
 
-    const del = (id) => {
-        setTaken(Taken.filter(t => t.id !== id))
+    const del = (key) => {
+        setTaken(Taken.filter(t => t.key !== key))
     }
 
     const toggleMenu = () => {
@@ -43,7 +43,7 @@ const MyProduct = () => {
             </div>
             <div className={s.menu}>
                 {Taken.map(t =>
-                    <TakenProduct id={t.id} name={t.name} del={del} mass={"1"}/>
+                    <TakenProduct key={crypto.randomUUID()} name={t.name} del={del} mass={"1"}/>
                 )}
                 <BackCountButton>Рассчитать</BackCountButton>
             </div>

@@ -1,9 +1,9 @@
 import s from "./Button.module.css";
 
-const BackCountButton = ({props, children}) => {
+const BackCountButton = (props) => {
     return (
         <div className={s.Border}>
-            <button className={s.Button} {...props} >{children}</button>
+            <button className={s.Button} {...props} >{props.children}</button>
         </div>
     );
 }
