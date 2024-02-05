@@ -6,10 +6,12 @@ import {AuthContext} from "./Context/AuthContext";
 import {useState} from "react";
 import {UserContext} from "./Context/UserContext";
 import {BurgerContext} from "./Context/BurgerContext";
+import {TakenContext} from "./Context/TakenContext";
 
 function App() {
     const [Auth, setAuth] = useState(true)
     const [Burger, setBurger] = useState(false)
+    const [Taken, setTaken] = useState([{id: 1, name: "test"}])
     const [User, setUser] = useState(
         {
             name: "Стас Барецкий",
@@ -20,6 +22,7 @@ function App() {
         })
 
   return (
+      <TakenContext.Provider value={{Taken, setTaken}}>
       <BurgerContext.Provider value={{Burger, setBurger}}>
       <UserContext.Provider value={{User, setUser}}>
             <AuthContext.Provider value={{Auth, setAuth}}>
@@ -29,6 +32,7 @@ function App() {
             </AuthContext.Provider>
       </UserContext.Provider>
       </BurgerContext.Provider>
+      </TakenContext.Provider>
   );
 }
 

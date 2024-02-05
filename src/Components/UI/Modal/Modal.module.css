@@ -6,6 +6,7 @@
     left: 0;
     display: none;
     background: rgba(0,0,0,0.5);
+    z-index: 200;
 }
 
 .ModalContent {
@@ -29,6 +30,7 @@
 }
 
 .exitBtn * {
-    font-size: 2em;
+    font-size: 2vh;
     background: rgba(0,0,0,0);
 }
+

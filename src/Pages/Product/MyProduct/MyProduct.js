@@ -1,17 +1,16 @@
 import {useContext, useState} from "react"
-import {AuthContext} from "../../../Context/AuthContext"
 import s from "./MyProduct.module.css"
-import BorderButton from "../../../Components/UI/Button/BackCountButton/BorderButton";
 import TakenProduct from "../../../Components/UI/TakenProduct/TakenProduct";
+import {TakenContext} from "../../../Context/TakenContext";
+import BackCountButton from "../../../Components/UI/Button/BackCountButton/BorderButton";
 
-const MyProduct = ({links}) => {
-    const {Auth, setAuth} = useContext(AuthContext)
+const MyProduct = () => {
     const [Product, setProduct] = useState(false)
     const [startY, setStartY] = useState(null)
-    const [taken, setTaken] = useState([{id: 1, name: "test"}])
+    const {Taken, setTaken} = useContext(TakenContext)
 
     const del = (id) => {
-        setTaken(taken.filter(t => t.id !== id))
+        setTaken(Taken.filter(t => t.id !== id))
     }
 
     const toggleMenu = () => {
@@ -43,10 +42,10 @@ const MyProduct = ({links}) => {
                 <img className={s.arrow} src={process.env.PUBLIC_URL + "/arrowUp.svg"} alt={"arrow"} onClick={toggleMenu}/>
             </div>
             <div className={s.menu}>
-                {taken.map(t =>
+                {Taken.map(t =>
                     <TakenProduct id={t.id} name={t.name} del={del} mass={"1"}/>
                 )}
-                <BorderButton>Рассчитать</BorderButton>
+                <BackCountButton>Рассчитать</BackCountButton>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import s from "./Button.module.css";
 
-const BorderButton = ({props, children}) => {
+const BackCountButton = ({props, children}) => {
     return (
         <div className={s.Border}>
             <button className={s.Button} {...props} >{children}</button>
@@ -8,4 +8,4 @@ const BorderButton = ({props, children}) => {
     );
 }
 
-export default BorderButton;
+export default BackCountButton;
