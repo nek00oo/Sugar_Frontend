@@ -36,7 +36,7 @@ const BurgerMenu = ({links}) => {
             </div>
             <div className={s.menu}>
                 {links.map(link =>
-                    <Link key={crypto.randomUUID()} className={s.menu__item} to={link.route} onClick={toggleMenu}>{link.name}</Link>
+                    <Link key={Date.now()} className={s.menu__item} to={link.route} onClick={toggleMenu}>{link.name}</Link>
                 )}
                 {Auth ? <Link className={s.menu__item} to={"/"} onClick={() =>{
                     toggleMenu()

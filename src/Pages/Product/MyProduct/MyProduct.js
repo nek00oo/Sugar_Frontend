@@ -9,8 +9,8 @@ const MyProduct = () => {
     const [startY, setStartY] = useState(null)
     const {Taken, setTaken} = useContext(TakenContext)
 
-    const del = (key) => {
-        setTaken(Taken.filter(t => t.key !== key))
+    const del = (id) => {
+        setTaken(Taken.filter(t => t.del_id !== id))
     }
 
     const toggleMenu = () => {
@@ -42,8 +42,8 @@ const MyProduct = () => {
                 <img className={s.arrow} src={process.env.PUBLIC_URL + "/arrowUp.svg"} alt={"arrow"} onClick={toggleMenu}/>
             </div>
             <div className={s.menu}>
-                {Taken.map(t =>
-                    <TakenProduct key={crypto.randomUUID()} name={t.name} del={del} mass={"1"}/>
+                {Taken.map((t, index) =>
+                    <TakenProduct key={index} name={t.name} del_id={t.del_id} del={del} mass={"1"}/>
                 )}
                 <BackCountButton>Рассчитать</BackCountButton>
             </div>

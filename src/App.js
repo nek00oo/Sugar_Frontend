@@ -11,7 +11,7 @@ import {TakenContext} from "./Context/TakenContext";
 function App() {
     const [Auth, setAuth] = useState(true)
     const [Burger, setBurger] = useState(false)
-    const [Taken, setTaken] = useState([{}])
+    const [Taken, setTaken] = useState([])
     const [User, setUser] = useState(
         {
             name: "Стас Барецкий",

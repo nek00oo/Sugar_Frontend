@@ -10,10 +10,9 @@ import SelectProduct from "../../Components/UI/SelectProduct/SelectProduct";
 import ProductCard from "../../Components/UI/Product/ProductCard";
 import MyProduct from "./MyProduct/MyProduct";
 
-
 const Product = () => {
     const {setBurger} = useContext(BurgerContext)
-    const [cards, setCards] = useState([{name:"test", id:1}])
+    const [cards, setCards] = useState([{name:"test", product_id:1}])
     const burgerLinks = [{route: "/Product", name: "Продукты"}]
     return (
         <div className={s.Wrapper}>
@@ -23,8 +22,8 @@ const Product = () => {
                 <div className={`${s1.Form} ${s3.Form}`}>
                     <SelectProduct placeholder={"Поиск продукта"}/>
                     <div className={s3.Scroll}>
-                        {cards.map(card =>
-                            <ProductCard name={card.name} key={card.id}/>
+                        {cards.map((card,index) =>
+                            <ProductCard key={index} name={card.name} product_id={card.product_id}/>
                         )}
                     </div>
                 </div>
