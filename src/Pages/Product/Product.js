@@ -15,8 +15,20 @@ import {useNavigate} from "react-router-dom";
 const Product = () => {
     const {setBurger} = useContext(BurgerContext)
     const navigate = useNavigate()
-    const [cards, setCards] = useState([{name:"test", product_id:1, carb:24},{name:"test1", product_id:12, carb:2},{name:"test2", product_id:13, carb:45}])
+    const [cards, setCards] = useState([
+        {name:"Хлеб бородинский", product_id:1, carb:41},
+        {name:"Фундук", product_id:12, carb:10},
+        {name:"Фасоль варёная", product_id:13, carb:22},
+        {name:"Треска запечённая", product_id:16, carb:8},
+        {name:"Гречневая каша на молоке", product_id:17, carb:22},
+        {name:"Имбирь", product_id:18, carb:16.2},
+        {name:"Инжир", product_id:19, carb:13.7},
+        {name:"Капуста пекинская", product_id:20, carb:2},
+        {name:"Колбаса вегетарианская", product_id:21, carb:1.8},
+        {name:"Горчица", product_id:15, carb:22}])
+
     const burgerLinks = [{route: "/statistics", name: "Статистика"}]
+
     return (
         <div className={s.Wrapper}>
             <Header left={<BurgerButton onClick={() => setBurger(true)}/>} center={"Главная"} right={<UserButton onClick={() => navigate('/account')}/>}/>

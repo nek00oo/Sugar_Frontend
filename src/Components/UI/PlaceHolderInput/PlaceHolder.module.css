@@ -12,4 +12,7 @@
     font-size: 7vw;
     font-weight: 500;
     width: 79vw;
+    border: #1DBCAB 2px solid;
+    border-radius: 30px;
+    padding-left: 3vw;
 }

@@ -24,7 +24,6 @@ function App() {
             m_res: 100,
             c_res: 100
         })
-
   return (
       <TakenContext.Provider value={{Taken, setTaken}}>
       <BurgerContext.Provider value={{Burger, setBurger}}>

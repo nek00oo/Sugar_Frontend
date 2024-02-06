@@ -18,13 +18,13 @@ ChartJS.register(CategoryScale,
     Filler,
     Legend);
 
-const Chart = () => {
+const Chart = (props) => {
     const data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'April', 'April', 'April', 'April', 'April', 'April', 'April'],
+        labels: props.labels,
         datasets: [
             {
                 label: 'Сахар',
-                data: [10, 20, 50, 29, 30, 29, 29, 29, 29, 100, 340, 30, 30],
+                data: props.data,
                 fill: true,
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor : 'rgba(53, 162, 235, 0.5)',
@@ -63,7 +63,7 @@ const Chart = () => {
     };
 
     return (
-        <Line data={data} options={options} />
+        <Line data={data} options={options} style={{margin:"2vw"}}/>
     );
 };
 

@@ -1,0 +1,20 @@
+.Sugar_btn {
+    display: flex;
+    padding: 0 3vw;
+    background: #3D5869;
+    border-radius: 30px;
+}
+
+.Plus {
+    height: 8vh;
+    width: auto;
+}
+
+.Text {
+    text-align: center;
+
+    padding-top: 0.8vh;
+    padding-right: 5vw;
+    font-size: 4vh;
+    background: rgba(0,0,0,0);
+}
