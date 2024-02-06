@@ -22,10 +22,6 @@ const Statistics = () => {
     const [time_c, setTime_c] = useState("")
     const [sugar_c, setSugar_c] = useState(0)
 
-    useEffect(() => {
-
-    }, [time]);
-
     const [modal, setModal] = useState(false)
     const burgerLinks = [{route: "/product", name: "Продукты"}]
     const navigate = useNavigate()
