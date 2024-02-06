@@ -17,13 +17,13 @@ const Router = () => {
         <Routes>
             <Route path="/account" element={<Account/>}></Route>
             <Route path="/product" element={<Product/>}></Route>
-            <Route path="*" element={<Navigate to="/product"/>}></Route>
+            <Route path="/statistics" element={<Statistics/>}></Route>
+            <Route path="*" element={<Navigate to="/account"/>}></Route>
         </Routes>
         :
         <Routes>
             <Route path="/register" element={<Register/>}></Route>
             <Route path="/authorization" element={<Authorization/>}></Route>
-            <Route path="/statistics" element={<Statistics/>}></Route>
             <Route path="*" element={<Navigate to="/authorization"/>}></Route>
         </Routes>
     )

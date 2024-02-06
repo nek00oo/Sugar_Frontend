@@ -16,7 +16,7 @@ const Product = () => {
     const {setBurger} = useContext(BurgerContext)
     const navigate = useNavigate()
     const [cards, setCards] = useState([{name:"test", product_id:1, carb:24},{name:"test1", product_id:12, carb:2},{name:"test2", product_id:13, carb:45}])
-    const burgerLinks = [{route: "/Product", name: "Продукты"}]
+    const burgerLinks = [{route: "/statistics", name: "Статистика"}]
     return (
         <div className={s.Wrapper}>
             <Header left={<BurgerButton onClick={() => setBurger(true)}/>} center={"Главная"} right={<UserButton onClick={() => navigate('/account')}/>}/>

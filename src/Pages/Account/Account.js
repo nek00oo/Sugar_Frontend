@@ -6,7 +6,6 @@ import {useContext, useState} from "react";
 import {UserContext} from "../../Context/UserContext";
 import Header from "../../Components/Header/Header";
 import ArrowButton from "../../Components/UI/Button/ArrowButton/ArrowButton";
-import Chart from "./Data/Statictics";
 import PlaceHolderInput from "../../Components/UI/PlaceHolderInput/PlaceHolderInput";
 import PenButton from "../../Components/UI/Button/PenButton/PenButton";
 import {useNavigate} from "react-router-dom";
@@ -60,11 +59,6 @@ const Account = () => {
                         :
                             <></>
                     }
-                </div>
-                <div className={s2.Form}>
-                    <div className={s1.Graph}>
-                        <Chart/>
-                    </div>
                 </div>
             </div>
         </div>
