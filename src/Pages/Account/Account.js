@@ -6,7 +6,6 @@ import {useContext, useState} from "react";
 import {UserContext} from "../../Context/UserContext";
 import Header from "../../Components/Header/Header";
 import ArrowButton from "../../Components/UI/Button/ArrowButton/ArrowButton";
-import UserButton from "../../Components/UI/Button/UserButton/UserButton";
 import Chart from "./Data/Statictics";
 import PlaceHolderInput from "../../Components/UI/PlaceHolderInput/PlaceHolderInput";
 import PenButton from "../../Components/UI/Button/PenButton/PenButton";
@@ -21,10 +20,12 @@ const Account = () => {
     const [weight, setWeight] = useState(User.weight)
     const [he, setHe] = useState(User.he)
     const [cc, setCc] = useState(User.cc)
+    const [maxRes] = useState(User.m_res)
+    const [res] = useState(User.c_res)
 
 
     const apply = () => {
-        setUser({name: name, login: login, height: height, weight: weight, he: he, cc: cc})
+        setUser({name: name, login: login, height: height, weight: weight, he: he, cc: cc, m_res: maxRes, c_res: res})
     }
     const reset = () => {
         setName(User.name)

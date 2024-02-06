@@ -20,7 +20,9 @@ function App() {
             height: "1.75м",
             weight:"200кг",
             he:3,
-            cc:4
+            cc:4,
+            m_res: 100,
+            c_res: 100
         })
 
   return (
