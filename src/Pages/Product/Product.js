@@ -15,7 +15,7 @@ import {useNavigate} from "react-router-dom";
 const Product = () => {
     const {setBurger} = useContext(BurgerContext)
     const navigate = useNavigate()
-    const [cards, setCards] = useState([{name:"test", product_id:1},{name:"test1", product_id:12},{name:"test2", product_id:13}])
+    const [cards, setCards] = useState([{name:"test", product_id:1, carb:24},{name:"test1", product_id:12, carb:2},{name:"test2", product_id:13, carb:45}])
     const burgerLinks = [{route: "/Product", name: "Продукты"}]
     return (
         <div className={s.Wrapper}>
@@ -26,7 +26,7 @@ const Product = () => {
                     <SelectProduct placeholder={"Поиск продукта"}/>
                     <div className={s3.Scroll}>
                         {cards.map((card,index) =>
-                            <ProductCard key={index} name={card.name} product_id={card.product_id}/>
+                            <ProductCard key={index} name={card.name} product_id={card.product_id} carb={card.carb}/>
                         )}
                     </div>
                 </div>

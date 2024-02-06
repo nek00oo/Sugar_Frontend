@@ -67,4 +67,17 @@
 
 }
 
+.Scroll{
+    display: flex;
+    width: 90vw;
+    margin: 1vh 0;
+    flex-direction: column;
+    overflow-y: auto;
+}
 
+.text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 6vw;
+    color: #000;
+}

@@ -20,13 +20,14 @@ const ProductCard = (props) => {
                 <div className={s.Block}>
                     <h3>100г:</h3>
                     <h3></h3>
-                    <h3>123У</h3>
+                    <h3>{props.carb}У</h3>
                 </div>
                 <h2 className={s.Product} style={{fontSize:"4vh"}}>Порция</h2>
                 <BorderInput type={"number"} onChange={(e) => setGram(e.target.value)}/>
                 <BackCountButton onClick={() => {setTaken([...Taken, {
                     name: props.name,
                     gr: gram,
+                    carb: Number(props.carb),
                     product_id: props.product_id,
                     del_id: Date.now()
                 }])

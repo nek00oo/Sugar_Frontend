@@ -1,13 +1,30 @@
-import {useContext, useState} from "react"
+import {useContext, useEffect, useState} from "react"
 import s from "./MyProduct.module.css"
 import TakenProduct from "../../../Components/UI/TakenProduct/TakenProduct";
 import {TakenContext} from "../../../Context/TakenContext";
 import BackCountButton from "../../../Components/UI/Button/BackCountButton/BorderButton";
+import ProgressBar from "../../../Components/UI/ProgressBar/ProgressBar";
+import {UserContext} from "../../../Context/UserContext";
 
 const MyProduct = () => {
     const [Product, setProduct] = useState(false)
     const [startY, setStartY] = useState(null)
+    const [CurrentHe, setCurrentHe] = useState(0)
     const {Taken, setTaken} = useContext(TakenContext)
+    const {User} = useContext(UserContext)
+
+
+
+    useEffect(() => {
+        setCurrentHe(countCart())
+    }, [Taken]);
+
+    const countCart = () => {
+        let sum = 0
+        console.log(Taken)
+        Taken.map(el => sum += (el.gr / 100 * el.carb))
+        return Math.round(sum / User.he)
+    }
 
     const del = (id) => {
         setTaken(Taken.filter(t => t.del_id !== id))
@@ -39,14 +56,19 @@ const MyProduct = () => {
         >
             <div className={`${s.first_element}${Product ? '' : ` ${s.close_first_element}`}`}>
                 <div className={s.title}>Ваша еда</div>
-                <img className={s.arrow} src={process.env.PUBLIC_URL + "/arrowUp.svg"} alt={"arrow"} onClick={toggleMenu}/>
+                <img className={s.arrow} src={process.env.PUBLIC_URL + "/arrowUp.svg"} alt={"arrow"}
+                     onClick={toggleMenu}/>
             </div>
             <div className={s.menu}>
-                {Taken.map((t, index) =>
-                    <TakenProduct key={index} name={t.name} del_id={t.del_id} del={del} mass={t.gr}/>
-                )}
-                <BackCountButton>Рассчитать</BackCountButton>
+                <div className={s.Scroll}>
+                    {Taken.map((t, index) =>
+                        <TakenProduct key={index} name={t.name} del_id={t.del_id} del={del} mass={t.gr}/>
+                    )}
+                </div>
             </div>
+            <div className={s.text}>Остаток ХЕ:</div>
+            <ProgressBar completed={100-CurrentHe}/>
+            <BackCountButton>Сохранить</BackCountButton>
         </div>
     );
 };
