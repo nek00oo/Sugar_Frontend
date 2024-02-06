@@ -1,6 +1,7 @@
 .Product {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
     background: lightgray;
     border-radius: 30px;
     margin: 2vh 3vw;

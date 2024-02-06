@@ -18,7 +18,9 @@ function App() {
             login: "stas@baretskii.su",
             password: "",
             height: "1.75м",
-            weight:"200кг"
+            weight:"200кг",
+            he:3,
+            cc:4
         })
 
   return (

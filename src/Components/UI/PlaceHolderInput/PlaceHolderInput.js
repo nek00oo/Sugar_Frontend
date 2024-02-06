@@ -1,10 +1,10 @@
 import s from "./PlaceHolder.module.css";
 
-const PlaceHolderInput = ({props, children}) => {
+const PlaceHolderInput = (props) => {
     return (
         <div className={s.PlaceHolder}>
-            <h2>{children}</h2>
-            <input className={s.Input} {...props}/>
+            <h2>{props.children}</h2>
+            <input className={s.Input} value={props.value} disabled={props.disabled} onChange={props.onChange} type={props.type}/>
         </div>
     );
 }

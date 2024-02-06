@@ -43,7 +43,7 @@ const MyProduct = () => {
             </div>
             <div className={s.menu}>
                 {Taken.map((t, index) =>
-                    <TakenProduct key={index} name={t.name} del_id={t.del_id} del={del} mass={"1"}/>
+                    <TakenProduct key={index} name={t.name} del_id={t.del_id} del={del} mass={t.gr}/>
                 )}
                 <BackCountButton>Рассчитать</BackCountButton>
             </div>
