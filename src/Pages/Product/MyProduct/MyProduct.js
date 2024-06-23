@@ -22,7 +22,7 @@ const MyProduct = () => {
     const countCart = () => {
         let sum = 0
         Taken.map(el => sum += (el.gr / 100 * el.carb))
-        return Math.round(sum / User.he)
+        return Math.round(sum / User.bread_unit)
     }
 
     const del = (id) => {
@@ -51,6 +51,7 @@ const MyProduct = () => {
             setStartY(null);
         }
     };
+
 
     return (
         <div
