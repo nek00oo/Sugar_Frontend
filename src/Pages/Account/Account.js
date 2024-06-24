@@ -10,6 +10,7 @@ import PlaceHolderInput from "../../Components/UI/PlaceHolderInput/PlaceHolderIn
 import PenButton from "../../Components/UI/Button/PenButton/PenButton";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import {formatDateYYMMDD} from "../../utils/FormatDate";
 const Account = () => {
     const {User, setUser} = useContext(UserContext)
     const [edit, setEdit] = useState(false)
@@ -24,19 +25,10 @@ const Account = () => {
     const [carbohydrate_ratio, setCarbohydrateRatio] = useState(User.carbohydrate_ratio)
     const [gender] = useState(User.gender)
 
-
     const navigate = useNavigate();
 
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;
-    };
-
     const apply = async () => {
-        const formattedBirthday = formatDate(birthday);
+        const formattedBirthday = formatDateYYMMDD(birthday);
         try {
             const updatedUser = {
                 id: parseInt(id, 10),
