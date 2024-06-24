@@ -15,22 +15,43 @@ img {
     flex: 1 1 auto;
 }
 
-.edit{
+.edit {
     display: flex;
     justify-content: space-between;
-    margin: 3vh;
+    align-items: center;
+    margin-bottom: 30px; /* Добавляет отступ сверху для разделения кнопок от других элементов */
 }
 
-.apply_btn{
-    font-size: 2em;
-    border-radius: 15px;
-    padding: 0 2vw;
-    background: green;
+.apply_btn, .reset_btn {
+    background-color: #4CAF50; /* Зеленый фон для кнопки */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center; /* Выравнивание текста */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    display: inline-block; /* Делаем кнопку блочным элементом */
+    font-size: 6vw; /* Размер текста */
+    margin: 4px 40px; /* Внешние отступы: верх/низ - 4px, слева/справа - 10px */
+    transition-duration: 0.4s;
+    border-radius: 4px;
 }
 
-.reset_btn{
-    font-size: 2em;
-    border-radius: 15px;
-    padding: 0 2vw;
-    background: red;
+.apply_btn {
+    background-color: #4CAF50; /* Зеленый фон для кнопки */
+}
+
+.apply_btn:hover {
+    background-color: white;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+}
+
+.reset_btn {
+    background-color: #f44336; /* Красный фон для кнопки */
+}
+
+.reset_btn:hover {
+    background-color: white;
+    color: #f44336;
+    border: 2px solid #f44336;
 }

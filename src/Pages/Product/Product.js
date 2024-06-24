@@ -1,7 +1,7 @@
 import s from "../../Components/UI/Wrapper.module.css";
 import s1 from "../../Components/UI/Form.module.css"
 import s3 from "./Product.module.css"
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {BurgerContext} from "../../Context/BurgerContext";
 import Header from "../../Components/Header/Header";
 import BurgerButton from "../../Components/UI/Button/BurgerButton/BurgerButton";
@@ -11,21 +11,25 @@ import ProductCard from "../../Components/UI/Product/ProductCard";
 import MyProduct from "./MyProduct/MyProduct";
 import UserButton from "../../Components/UI/Button/UserButton/UserButton";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const Product = () => {
     const {setBurger} = useContext(BurgerContext)
     const navigate = useNavigate()
-    const [cards, setCards] = useState([
-        {name:"Хлеб бородинский", product_id:1, carb:41},
-        {name:"Фундук", product_id:12, carb:10},
-        {name:"Фасоль варёная", product_id:13, carb:22},
-        {name:"Треска запечённая", product_id:16, carb:8},
-        {name:"Гречневая каша на молоке", product_id:17, carb:22},
-        {name:"Имбирь", product_id:18, carb:16.2},
-        {name:"Инжир", product_id:19, carb:13.7},
-        {name:"Капуста пекинская", product_id:20, carb:2},
-        {name:"Колбаса вегетарианская", product_id:21, carb:1.8},
-        {name:"Горчица", product_id:15, carb:22}])
+    const [cards, setCards] = useState([])
+
+    const fetchProductData = async () => {
+        try {
+            const response = await axios.get("http://localhost:8080/product/all");
+            setCards(response.data.Data);
+        } catch (error) {
+            console.error("Error fetching product data:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchProductData();
+    }, []);
 
     const burgerLinks = [{route: "/statistics", name: "Статистика"}]
 
@@ -38,7 +42,7 @@ const Product = () => {
                     <SelectProduct placeholder={"Поиск продукта"}/>
                     <div className={s3.Scroll}>
                         {cards.map((card,index) =>
-                            <ProductCard key={index} name={card.name} product_id={card.product_id} carb={card.carb}/>
+                            <ProductCard key={index} name={card.name} product_id={card.id} carb={card.carbs}/>
                         )}
                     </div>
                 </div>

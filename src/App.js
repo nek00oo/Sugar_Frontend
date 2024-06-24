@@ -3,27 +3,21 @@ import './App.css';
 import {BrowserRouter} from "react-router-dom";
 import Router from "./Router";
 import {AuthContext} from "./Context/AuthContext";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {UserContext} from "./Context/UserContext";
 import {BurgerContext} from "./Context/BurgerContext";
 import {TakenContext} from "./Context/TakenContext";
 
 function App() {
-    const [Auth, setAuth] = useState(true)
+    const [Auth, setAuth] = useState(false)
     const [Burger, setBurger] = useState(false)
     const [Taken, setTaken] = useState([])
-    const [User, setUser] = useState(
-        {
-            name: "Стас Барецкий",
-            login: "stas@baretskii.su",
-            password: "",
-            height: "1.75м",
-            weight:"200кг",
-            he:3,
-            cc:4,
-            m_res: 100,
-            c_res: 100
-        })
+    const [User, setUser] = useState(null)
+
+    useEffect(() => {
+        console.log("User updated:", User);
+    }, [User]);
+
   return (
       <TakenContext.Provider value={{Taken, setTaken}}>
       <BurgerContext.Provider value={{Burger, setBurger}}>
