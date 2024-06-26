@@ -39,7 +39,6 @@ const Statistics = () => {
                 }
             });
             const notes = response.data.Data;
-            console.log(notes)
             const times = notes.map(note => formatDateDDMMYY(note['date-time']));
             const sugarLevels = notes.map(note => note['sugar-level']);
 
@@ -55,17 +54,13 @@ const Statistics = () => {
     }, []);
 
     const addNote = async () => {
-        const noteType = "sugar";
-
         try {
             const response = await axios.post('http://localhost:8080/note', {
                 'user-id': parseInt(userId),
-                'note-type': noteType,
                 'date-time': date,
                 'sugar-level': parseInt(sugar_c)
             });
             console.log(response.data);
-            console.log(date)
             await fetchData();
         } catch (error) {
             console.error("Error adding note:", error);

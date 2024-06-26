@@ -10,14 +10,14 @@ import PlaceHolderInput from "../../Components/UI/PlaceHolderInput/PlaceHolderIn
 import PenButton from "../../Components/UI/Button/PenButton/PenButton";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import {formatDateYYMMDD} from "../../utils/FormatDate";
+
 const Account = () => {
     const {User, setUser} = useContext(UserContext)
     const [edit, setEdit] = useState(false)
 
     const [id] = useState(User.id)
     const [name, setName] = useState(User.name)
-    const [birthday] = useState(User.birthday)
+    const [birthday, setBirthday] = useState(User.birthday)
     const [login, setLogin] = useState(User.login)
     const [height, setHeight] = useState(User.height)
     const [weight, setWeight] = useState(User.weight)
@@ -28,12 +28,11 @@ const Account = () => {
     const navigate = useNavigate();
 
     const apply = async () => {
-        const formattedBirthday = formatDateYYMMDD(birthday);
         try {
             const updatedUser = {
                 id: parseInt(id, 10),
                 new_name: name,
-                new_birthday: formattedBirthday,
+                new_birthday: birthday,
                 new_bread_unit: parseInt(bread_unit, 10),
                 new_carbohydrate_ratio: parseInt(carbohydrate_ratio, 10),
                 new_gender: gender,
@@ -43,9 +42,21 @@ const Account = () => {
 
             const response = await axios.put('http://localhost:8080/user', updatedUser);
 
-            setUser(updatedUser);
+            setUser({
+                id: id,
+                login: login,
+                password: User.password,
+                name: name,
+                gender: gender,
+                birthday: birthday,
+                height: height,
+                weight: weight,
+                bread_unit: bread_unit,
+                carbohydrate_ratio: carbohydrate_ratio,
+                m_res: User.m_res,
+                c_res: User.c_res
+            });
             setEdit(false);
-            console.log('User updated:', response.data);
         } catch (error) {
             console.error("Error updating user information:", error);
         }
@@ -68,10 +79,11 @@ const Account = () => {
                     <img src={process.env.PUBLIC_URL + "/Group 14.svg"} alt={"12"}/>
                     <PlaceHolderInput type={"text"} disabled={!edit} value={name} onChange={(e) => setName(e.target.value)} >Имя:</PlaceHolderInput>
                     <PlaceHolderInput type={"text"} disabled={!edit} value={login} onChange={(e) => setLogin(e.target.value)}>Логин:</PlaceHolderInput>
+                    <PlaceHolderInput type={"date"} disabled={!edit} value={birthday} onChange={(e) => setBirthday(e.target.value)}>Дата рождения:</PlaceHolderInput>
                     <PlaceHolder>Ваши показатели</PlaceHolder>
                     <PlaceHolderInput type={"text"} disabled={!edit} value={height} onChange={(e) => setHeight(e.target.value)}>Рост (см):</PlaceHolderInput>
                     <PlaceHolderInput type={"text"} disabled={!edit} value={weight} onChange={(e) => setWeight(e.target.value)}>Вес (кг):</PlaceHolderInput>
-                    <PlaceHolderInput type={"text"} disabled={!edit} value={bread_unit} onChange={(e) => setBreadUnit(e.target.value)}>ХЕ:</PlaceHolderInput>
+                    <PlaceHolderInput type={"text"} disabled={!edit} value={bread_unit} onChange={(e) => setBreadUnit(e.target.value)}>Суточная норма ХЕ:</PlaceHolderInput>
                     <PlaceHolderInput type={"text"} disabled={!edit} value={carbohydrate_ratio} onChange={(e) => setCarbohydrateRatio(e.target.value)}>УК:</PlaceHolderInput>
                     {
                         edit

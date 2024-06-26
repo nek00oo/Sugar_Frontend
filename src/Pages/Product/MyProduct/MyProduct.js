@@ -21,8 +21,9 @@ const MyProduct = () => {
 
     const countCart = () => {
         let sum = 0
-        Taken.map(el => sum += (el.gr / 100 * el.carb))
-        return Math.round(sum / User.bread_unit)
+        //Taken.reduce(_element => _element.gr / 100 * _element.xe)
+        Taken.map(el => sum += (el.gr / 100 * el.xe))
+        return Math.round(sum)
     }
 
     const del = (id) => {

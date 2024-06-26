@@ -12,10 +12,11 @@ import axios from "axios";
 import {UserContext} from "../../Context/UserContext";
 import {useNavigate} from "react-router-dom";
 import {AuthContext} from "../../Context/AuthContext";
+import {formatDateYYMMDD} from "../../utils/FormatDate";
 
 const Authorization = () => {
     const {setBurger} = useContext(BurgerContext)
-    const {User, setUser} = useContext(UserContext)
+    const {setUser} = useContext(UserContext)
     const {setAuth} = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -23,6 +24,8 @@ const Authorization = () => {
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+
+    const [error, setError] = useState(null)
 
     const fetchUserInformation = async () => {
         try {
@@ -32,6 +35,11 @@ const Authorization = () => {
                     password
                 }
             });
+
+            if (response.data.status === "Error"){
+                setError("User not found")
+            }
+
             const user = response.data.Data;
             if (user) {
                 setUser({
@@ -40,20 +48,19 @@ const Authorization = () => {
                     password: user.password,
                     name: user.UserInfo.name,
                     gender: user.UserInfo.gender,
-                    birthday: user.UserInfo.birthday,
+                    birthday: formatDateYYMMDD(user.UserInfo.birthday),
                     height: user.UserInfo.height,
                     weight: user.UserInfo.weight,
                     bread_unit: user.UserInfo['bread-unit'],
                     carbohydrate_ratio: user.UserInfo['carbohydrate-ratio'],
-                    m_res: 100,
-                    c_res: 100
+                    c_res: user.UserInfo['bread-unit'],
+                    m_res: 100
                 });
+
                 setAuth(true);
-                console.log("response.data:", response.data);
-                console.log("user: ", user);
-                console.log("User: ", User);
                 navigate("/product");
             }
+            console.log("response.data:", response.data);
 
         } catch (error) {
             console.error("Error fetching user information:", error);
@@ -83,6 +90,7 @@ const Authorization = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    {error && <p style={{ marginLeft: '5vw', fontSize: '4vw', color: 'red' }}>{error}</p>}
                     <BorderButton type={"submit"}>далее</BorderButton>
                 </form>
                 <CreateAccount/>
