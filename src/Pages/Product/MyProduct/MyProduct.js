@@ -17,11 +17,10 @@ const MyProduct = () => {
 
     useEffect(() => {
         setCurrentHe(countCart())
-    }, [Taken]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [Taken]);
 
     const countCart = () => {
         let sum = 0
-        //Taken.reduce(_element => _element.gr / 100 * _element.xe)
         Taken.map(el => sum += (el.gr / 100 * el.xe))
         return Math.round(sum)
     }
@@ -40,7 +39,7 @@ const MyProduct = () => {
 
     const save = () => {
         setTaken([])
-        setUser({...User, c_res: User.c_res - CurrentHe})
+        setUser({...User, current_bread_unit_day: User.current_bread_unit_day - CurrentHe})
     }
 
     const handleTouchMove = (e) => {
@@ -73,7 +72,7 @@ const MyProduct = () => {
                 </div>
             </div>
             <div className={s.text}>Остаток ХЕ:</div>
-            <ProgressBar completed={Math.round((User.c_res-CurrentHe) / User.m_res * 100)} val={Math.round(User.c_res-CurrentHe)}/>
+            <ProgressBar completed={Math.round(User.current_bread_unit_day - CurrentHe)} val={Math.round(User.current_bread_unit_day-CurrentHe)}/>
             <BackCountButton onClick={() => save()}>Сохранить</BackCountButton>
         </div>
     );

@@ -56,8 +56,7 @@ const Register = () => {
                     weight: user.UserInfo.weight,
                     bread_unit: user.UserInfo['bread-unit'],
                     carbohydrate_ratio: user.UserInfo['carbohydrate-ratio'],
-                    m_res: 100,
-                    c_res: 100
+                    current_bread_unit_day: user.UserInfo['bread-unit'],
                 });
 
                 setAuth(true);

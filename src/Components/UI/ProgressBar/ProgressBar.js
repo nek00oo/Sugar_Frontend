@@ -1,11 +1,15 @@
+import {UserContext} from "../../../Context/UserContext";
+import {useContext} from "react";
+
 const ProgressBar = (props) => {
+    const {User} = useContext(UserContext)
     const {completed, val} = props;
 
     const takeColor = () => {
         switch (true) {
-            case completed > 70:
+            case completed > User.bread_unit * 2/3:
                 return "#00ff00"
-            case completed < 30:
+            case completed < User.bread_unit * 1/3:
                 return "#ff0000"
             default:
                 return "#ffcf00"
@@ -21,7 +25,7 @@ const ProgressBar = (props) => {
 
     const fillerStyles = {
         height: '100%',
-        width: `${completed}%`,
+        width: `${Math.min((completed / User.bread_unit) * 100, 100)}%`,
         backgroundColor: takeColor(),
         borderRadius: 'inherit',
         transition: 'width 1s ease-in-out',

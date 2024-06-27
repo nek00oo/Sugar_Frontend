@@ -53,8 +53,7 @@ const Account = () => {
                 weight: weight,
                 bread_unit: bread_unit,
                 carbohydrate_ratio: carbohydrate_ratio,
-                m_res: User.m_res,
-                c_res: User.c_res
+                current_bread_unit_day: User.current_bread_unit_day
             });
             setEdit(false);
         } catch (error) {

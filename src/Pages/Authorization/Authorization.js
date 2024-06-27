@@ -35,6 +35,7 @@ const Authorization = () => {
                     password
                 }
             });
+            console.log("Console:", response)
 
             if (response.data.status === "Error"){
                 setError("User not found")
@@ -53,8 +54,7 @@ const Authorization = () => {
                     weight: user.UserInfo.weight,
                     bread_unit: user.UserInfo['bread-unit'],
                     carbohydrate_ratio: user.UserInfo['carbohydrate-ratio'],
-                    c_res: user.UserInfo['bread-unit'],
-                    m_res: 100
+                    current_bread_unit_day: user.UserInfo['bread-unit'],
                 });
 
                 setAuth(true);
