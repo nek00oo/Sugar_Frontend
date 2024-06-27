@@ -25,7 +25,7 @@ const ProgressBar = (props) => {
 
     const fillerStyles = {
         height: '100%',
-        width: `${Math.min((completed / User.bread_unit) * 100, 100)}%`,
+        width: `${Math.max((completed / User.bread_unit) * 100, 15)}%`,
         backgroundColor: takeColor(),
         borderRadius: 'inherit',
         transition: 'width 1s ease-in-out',

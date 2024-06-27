@@ -40,7 +40,7 @@ const Account = () => {
                 new_height: parseInt(height, 10)
             };
 
-            const response = await axios.put('http://localhost:8080/user', updatedUser);
+            await axios.put('http://localhost:8080/user', updatedUser);
 
             setUser({
                 id: id,
@@ -52,8 +52,7 @@ const Account = () => {
                 height: height,
                 weight: weight,
                 bread_unit: bread_unit,
-                carbohydrate_ratio: carbohydrate_ratio,
-                current_bread_unit_day: User.current_bread_unit_day
+                carbohydrate_ratio: carbohydrate_ratio
             });
             setEdit(false);
         } catch (error) {
