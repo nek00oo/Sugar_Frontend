@@ -65,7 +65,7 @@ const MyProduct = () => {
 
     return (
         <div
-            className={`${s.product__menu}${Product ? ` ${s.open}` : ''}`}
+            className={`${s.product__menu}${Product ? ` ${s.open}` : ` ${s.close}`}`}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
         >
@@ -80,7 +80,7 @@ const MyProduct = () => {
                     )}
                 </div>
             </div>
-            <div className={s.text}>Остаток ХЕ:</div>
+            <div className={s.text} style={{marginLeft: '5vw'}}>Остаток ХЕ:</div>
             <ProgressBar completed={Math.round(currentBreadUnitDay - CurrentHe)} val={Math.round(currentBreadUnitDay - CurrentHe)} />
             <BackCountButton onClick={save}>Сохранить</BackCountButton>
             <BackCountButton onClick={reset}>Сбросить</BackCountButton>
