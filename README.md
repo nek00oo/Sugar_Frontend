@@ -15,7 +15,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The application is designed for phones and tablets
 
-### Make sure that you have started the database and backend before doing this
+### Attention
+Make sure that you have started the database and backend before doing this
 
 
 
