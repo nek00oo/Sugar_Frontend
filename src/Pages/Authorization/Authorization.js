@@ -29,19 +29,14 @@ const Authorization = () => {
 
     const fetchUserInformation = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/user`, {
+            const responseGet = await axios.get(`http://localhost:8080/user`, {
                 params: {
                     login,
                     password
                 }
             });
-            console.log("Console:", response)
 
-            if (response.data.status === "Error"){
-                setError("User not found")
-            }
-
-            const user = response.data.Data;
+            const user = responseGet.data.Data;
             if (user) {
                 setUser({
                     id: user.id,
@@ -59,10 +54,16 @@ const Authorization = () => {
                 setAuth(true);
                 navigate("/product");
             }
-            console.log("response.data:", response.data);
 
         } catch (error) {
-            console.error("Error fetching user information:", error);
+            if (axios.isAxiosError(error)) {
+                if (error.response && error.response.status === 401) {
+                    setError("Unauthorized: Incorrect login or password");
+                }
+            } else {
+                console.error("Unexpected error:", error);
+                setError("Unexpected error occurred");
+            }
         }
     };
 

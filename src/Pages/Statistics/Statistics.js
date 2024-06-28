@@ -33,12 +33,12 @@ const Statistics = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/note`, {
+            const responseGet = await axios.get(`http://localhost:8080/note`, {
                 params: {
                     'id': userId,
                 }
             });
-            const notes = response.data.Data;
+            const notes = responseGet.data.Data;
             const times = notes.map(note => formatDateDDMMYY(note['date-time']));
             const sugarLevels = notes.map(note => note['sugar-level']);
 
@@ -55,12 +55,11 @@ const Statistics = () => {
 
     const addNote = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/note', {
+            await axios.post('http://localhost:8080/note', {
                 'user-id': parseInt(userId),
                 'date-time': date,
                 'sugar-level': parseInt(sugar_c)
             });
-            console.log(response.data);
             await fetchData();
         } catch (error) {
             console.error("Error adding note:", error);

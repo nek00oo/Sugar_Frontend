@@ -25,7 +25,7 @@ const Register = () => {
         event.preventDefault();
 
         try {
-            const response_post = await axios.post("http://localhost:8080/user", {
+            const responsePost = await axios.post("http://localhost:8080/user", {
                 login: login,
                 password: password,
                 name: name,
@@ -37,34 +37,45 @@ const Register = () => {
                 height : 1
             });
 
-            const response_get = await axios.get(`http://localhost:8080/user`, {
-                params: {
-                    login,
-                    password
-                }
-            });
-            const user = response_get.data.Data;
-            if (response_post.status === 200 && user) { //201
-                setUser({
-                    id: user.id,
-                    login: user.login,
-                    password: user.password,
-                    name: user.UserInfo.name,
-                    gender: user.UserInfo.gender,
-                    birthday: user.UserInfo.birthday,
-                    height: user.UserInfo.height,
-                    weight: user.UserInfo.weight,
-                    bread_unit: user.UserInfo['bread-unit'],
-                    carbohydrate_ratio: user.UserInfo['carbohydrate-ratio']
+            if (responsePost.status === 200) {
+                const responseGet = await axios.get("http://localhost:8080/user", {
+                    params: {
+                        login,
+                        password
+                    }
                 });
 
-                setAuth(true);
-            } else {
-                setError("Registration failed. Please try again.");
+                const user = responseGet.data.Data;
+                if (user) {
+                    setUser({
+                        id: user.id,
+                        login: user.login,
+                        password: user.password,
+                        name: user.UserInfo.name,
+                        gender: user.UserInfo.gender,
+                        birthday: user.UserInfo.birthday,
+                        height: user.UserInfo.height,
+                        weight: user.UserInfo.weight,
+                        bread_unit: user.UserInfo['bread-unit'],
+                        carbohydrate_ratio: user.UserInfo['carbohydrate-ratio']
+                    });
+
+                    setAuth(true);
+                    return;
+                }
             }
-        } catch (err) {
-            console.error("Error during registration:", err);
-            setError("An error occurred during registration. Please try again.");
+
+            setError("Registration failed.");
+
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                if (error.response && error.response.status === 400) {
+                    setError("Registration failed. Change login and try again.");
+                }
+            } else {
+                console.error("Error during registration:", error);
+                setError("Unexpected error occurred");
+            }
         }
     };
 

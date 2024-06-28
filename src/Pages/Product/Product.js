@@ -25,13 +25,13 @@ const Product = () => {
 
     const fetchProductData = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/product/all");
-            if (response.data.Data == null){
+            const responseGet = await axios.get("http://localhost:8080/product/all");
+            if (responseGet.data.Data == null){
                 setError("Product not found")
                 return
             }
-            setCards(response.data.Data);
-            setFilteredCards(response.data.Data)
+            setCards(responseGet.data.Data);
+            setFilteredCards(responseGet.data.Data)
         } catch (error) {
             console.error("Error fetching product data:", error);
         }
