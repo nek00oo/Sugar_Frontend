@@ -20,7 +20,7 @@
     border-radius: 30px;
     background-color: #ffffff;
     display: flex;
-    width: 90vw; /*width*/
+    width: 90vw;
     height: auto;
     margin: 2vh 0;
     flex-direction: column;

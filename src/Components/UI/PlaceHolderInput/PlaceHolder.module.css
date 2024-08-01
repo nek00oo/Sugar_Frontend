@@ -3,7 +3,8 @@
     font-family: var(--font-family);
     font-size: 7vw;
     font-weight: 500;
-    padding-bottom: 4vh;
+    /*padding-bottom: 4vh;*/
+    margin-bottom: 4vh;
 }
 
 .Input {
